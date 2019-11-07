@@ -3,10 +3,14 @@ import ImageCard from "./ImageCard";
 import axios from "axios";
 
 export default function NasaContainer() {
+
+	const dateString = new Date().toISOString().slice(0,10);
+
 	const [data, setData] = useState([]);
+	const [date, setDate] = useState(dateString);
 
 	useEffect(() => {
-		axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+		axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateString}`)
 		.then(response => {
 			setData(response.data);
 			console.log(response.data);	
@@ -15,8 +19,6 @@ export default function NasaContainer() {
 			console.log("error", error);
 		})
 	}, []);
-
-	//return null;
 
 	return (
 		<div className="nasa">
@@ -27,5 +29,4 @@ export default function NasaContainer() {
 			/>
 		</div>
 	);
-
 }

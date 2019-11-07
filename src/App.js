@@ -1,16 +1,14 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NasaContainer from "./components/NasaContainer";
+import NasaNavBar from "./components/NasaNavBar";
 import "./App.css";
 
 function App() {
 
-
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+      <NasaNavBar/>
       <div className="container">
       	<NasaContainer/>
       </div>
